@@ -681,3 +681,42 @@ HAVING COUNT(title) > 1000000;**`
 - Teremos mais comumente dois SELECTS;
 - A subquery em alguns casos se parece muito com um JOIN;
 - Porem as vezes precisamos de algo mais especifico,então fazer uma subconsulta pode se tornar mais pratico do que um JOIN;
+
+**Exemplo:**
+
+`**SELECT
+(SELECT ADDDATE("1990-09-01", INTERVAL 10 DAY) FROM tbcliente WHERE CPF = '1471156710') AS nova_data1,
+(SELECT ADDDATE("2000-02-12", INTERVAL 10 MONTH) FROM tbcliente WHERE CPF = '19290992743') AS nova_data2;**`
+
+## ADDDATE()
+
+- Adiciona um intervalo de 10 dias na data em que esta sendo inserido
+- Também e possivel acresentar anos na data ou ate mesmo meses
+
+**Exemplo:**
+
+`**SELECT ADDDATE("1990-09-01",INTERVAL 10 DAY)**`
+
+ `**FROM tbcliente WHERE**` 
+
+`**CPF = 1471156710;**`
+
+**Anos**
+
+`**SELECT ADDDATE("1990-09-01",INTERVAL 10 YEAR)**`
+
+ `**FROM tbcliente WHERE**` 
+
+`**CPF = 1471156710;**`
+
+**Meses**
+
+`**SELECT ADDDATE("1990-09-01",INTERVAL 10 MONTHS)**`
+
+ `**FROM tbcliente WHERE**` 
+
+`**CPF = 1471156710;**`
+
+PDF com funções de DATE()
+
+[Funções de manipulação de data no MySQL 5.5.pdf](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/60813fd2-bed5-4927-ae12-946c1c0df70e/Funes_de_manipulao_de_data_no_MySQL_5.5.pdf)
