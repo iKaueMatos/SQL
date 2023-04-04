@@ -1,0 +1,46 @@
+
+/*criando tabela para o relacionamento entre elas*/
+
+CREATE TABLE estudantes (
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	nome VARCHAR(100),
+	turma VARCHAR(5)
+);
+
+/*criando um relação com chave estrangeira/
+CREATE TABLE contatos (
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	telefone VARCHAR(20),
+	estudante_id INT NOT NULL,
+	/*referenciando a chave estrangeira para tabela estudantes*/
+	FOREIGN KEY (estudante_id) REFERENCES estudantes(id) 
+
+);
+
+
+/*iserção de dados na tabela de telefone*/
+
+/*A questão e que cada contato pertence a somente a um estudante formando uma relação um para um*/
+
+
+/* primeira tabela*/
+
+INSERT INTO estudantes(nome,turma) VALUES ('kaue de matos',24578);
+INSERT INTO estudantes(nome,turma) VALUES ('Arthur de matos',24557);
+
+/*segunda tabela */
+INSERT INTO contatos (telefone,estudante_id) VALUES ('(48)9999-9999',1);
+INSERT INTO contatos (telefone,estudante_id) VALUES ('(48)9999-2225',2);
+
+SELECT * FROM contatos;
+
+/* Desta forma e possivel você ver os dois id_s relacionados um com o outro;*/
+
+
+
+/* retornando a tabela com respectivos dados da relação 1 para 1 com join*/ 
+
+SELECT estudantes.nome,estudantes.turma,contatos.telefone 
+FROM estudantes
+JOIN contatos ON 
+contatos.estudante_id = estudantes.id;
